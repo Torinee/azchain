@@ -5,9 +5,11 @@ import { useGlobalContext } from '@/context/GlobalContext'
 import Button from '../Button'
 import LanguageIcon from '@/images/LanguageIcon'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 
 const HeaderContainer = () => {
     const { t, isMobile, language } = useGlobalContext()
+    const router = useRouter()
 
     const scrollToElement = (id) => {
         const element = document.getElementById(id)
@@ -19,6 +21,16 @@ const HeaderContainer = () => {
             top: elementPosition - offset,
             behavior: 'smooth'
         })
+    }
+
+    const handleChangeLanguage = () => {
+        let pathname = router.asPath
+        if (language === 'vi') {
+            pathname = pathname.replace(/\?lang=vi/g, '')
+        } else {
+            pathname = pathname + '?lang=vi'
+        }
+        router.push(pathname)
     }
 
     return (
@@ -61,9 +73,7 @@ const HeaderContainer = () => {
                         <Button>{t('JOIN NOW')}</Button>
                     </Link>
 
-                    <Header.Language
-                        href={language === 'en' ? '/?lang=vi' : '/'}
-                    >
+                    <Header.Language onClick={handleChangeLanguage}>
                         <LanguageIcon />
                         {language}
                     </Header.Language>

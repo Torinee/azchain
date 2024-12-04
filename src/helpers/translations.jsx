@@ -92,9 +92,10 @@ const translation = {
     'Disclaimer: Cryptocurrency may be unregulated in your jurisdiction. The value of cryptocurrencies may go down as well as up. Profits may be subject to capital gains or other taxes applicable in your jurisdiction.':
         'Khuyến cáo: Tiền điện tử có thể không được quản lý trong khu vực của bạn. Giá trị của tiền điện tử có thể giảm cũng như tăng. Lợi nhuận có thể chịu thuế lãi vốn hoặc các loại thuế khác áp dụng tại khu vực của bạn.',
     'Buy now': 'Mua ngay',
-    FAQ: 'Câu hỏi thường gặp',
-    Media: 'Truyền thông',
-    Disclaimers: 'Khuyến cáo',
+    'Terms of service': 'Điều khoản dịch vụ',
+    'Privacy policy': 'Chính sách bảo mật',
+    Disclaimer: 'Tuyên bố miễn trừ trách nhiệm',
+    'Support center': 'Trung tâm hỗ trợ',
 
     // white home
     'Join the revolution with': 'Tham gia cuộc cách mạng cùng',
