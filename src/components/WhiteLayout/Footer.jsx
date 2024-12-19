@@ -6,9 +6,13 @@ import InstagramIcon from '@/images/InstagramIcon'
 import TwitterIcon from '@/images/TwitterIcon'
 import YoutubeIcon from '@/images/YoutubeIcon'
 import { useGlobalContext } from '@/context/GlobalContext'
+import Link from 'next/link'
 
 const FooterContainer = () => {
-    const { t } = useGlobalContext()
+    const { t, language } = useGlobalContext()
+
+    const generateLink = (link) =>
+        `${link}${language === 'vi' ? '?lang=vi' : ''}`
 
     return (
         <Footer.Container>
@@ -29,10 +33,13 @@ const FooterContainer = () => {
                 </Footer.Top>
 
                 <Footer.Menu>
-                    <a>{t('Buy now')}</a>
-                    <a>{t('FAQ')}</a>
-                    <a>{t('Media')}</a>
-                    <a>{t('Disclaimers')}</a>
+                    <Link href=''>{t('Buy now')}</Link>
+                    <Link href=''>{t('Terms of service')}</Link>
+                    <Link href={generateLink('/privacy-policy')}>
+                        {t('Privacy policy')}
+                    </Link>
+                    <Link href=''>{t('Disclaimer')}</Link>
+                    <Link href=''>{t('Support center')}</Link>
                 </Footer.Menu>
 
                 <Footer.Text>

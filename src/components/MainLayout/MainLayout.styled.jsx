@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import styled from 'styled-components'
 
 export const Header = {
@@ -39,7 +38,7 @@ export const Header = {
         align-items: center;
         gap: 12px;
     `,
-    Language: styled(Link)`
+    Language: styled.div`
         font-size: 16px;
         display: flex;
         align-items: center;
@@ -89,6 +88,8 @@ export const Footer = {
 }
 
 export const Responsive = styled.div`
+    background: #131321;
+
     @media (max-width: 1200px) {
         ${Header.CenterItem} {
             padding: 0 10px;

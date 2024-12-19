@@ -4,9 +4,12 @@ import Container from '../Container'
 import { useGlobalContext } from '@/context/GlobalContext'
 import Button from '../Button'
 import LanguageIcon from '@/images/LanguageIcon'
+import { useRouter } from 'next/router'
 
 const HeaderContainer = () => {
     const { t, isMobile, language } = useGlobalContext()
+
+    const router = useRouter()
 
     const scrollToElement = (id) => {
         const element = document.getElementById(id)
@@ -18,6 +21,16 @@ const HeaderContainer = () => {
             top: elementPosition - offset,
             behavior: 'smooth'
         })
+    }
+
+    const handleChangeLanguage = () => {
+        let pathname = router.asPath
+        if (language === 'vi') {
+            pathname = pathname.replace(/\?lang=vi/g, '')
+        } else {
+            pathname = pathname + '?lang=vi'
+        }
+        router.push(pathname)
     }
 
     return (
@@ -51,15 +64,21 @@ const HeaderContainer = () => {
                             {t('Collection')}
                         </Header.CenterItem>
                         <Header.CenterItem
-                            onClick={() => scrollToElement('ecosystem')}
+                            onClick={() => scrollToElement('faq')}
                         >
-                            {t('Ecosystem')}
+                            FAQ
                         </Header.CenterItem>
                     </Header.Center>
 
-                    <Button>{t('JOIN NOW')}</Button>
+                    <Button
+                        onClick={() =>
+                            (window.location.href = 'https://nft.azchain.app/')
+                        }
+                    >
+                        {t('JOIN NOW')}
+                    </Button>
 
-                    <Header.Language href={language === 'en' ? '/' : '/home'}>
+                    <Header.Language onClick={handleChangeLanguage}>
                         <LanguageIcon color='#171717' />
                         {language}
                     </Header.Language>

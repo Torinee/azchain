@@ -1,5 +1,5 @@
 import MainLayout from '@/components/MainLayout'
-import DarkHome from '@/screens/DarkHome'
+import PrivacyPolicy from '@/screens/PrivacyPolicy'
 import Head from 'next/head'
 import { useRouter } from 'next/router'
 
@@ -24,7 +24,7 @@ export default function Page() {
                     }
                 />
             </Head>
-            <DarkHome />
+            <PrivacyPolicy />
         </MainLayout>
     )
 }

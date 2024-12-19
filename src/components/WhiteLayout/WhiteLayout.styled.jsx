@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import styled from 'styled-components'
 
 export const Header = {
@@ -38,7 +37,7 @@ export const Header = {
         align-items: center;
         gap: 12px;
     `,
-    Language: styled(Link)`
+    Language: styled.div`
         font-size: 16px;
         display: flex;
         align-items: center;
