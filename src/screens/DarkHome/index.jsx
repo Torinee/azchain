@@ -3,7 +3,9 @@ import React, { useEffect, useRef } from 'react'
 import Container from '@/components/Container'
 import { Swiper, SwiperSlide } from 'swiper/react'
 import { Navigation } from 'swiper/modules'
-
+import Button from '@/components/Button'
+import Slider from '@/components/Slider/Index'
+import ArrowCircleIcon from '@/images/ArrowCricleIcon'
 import {
     AZGPay,
     About,
@@ -17,10 +19,9 @@ import {
     RoadMap,
     Token
 } from './DarkHome.styled'
+
 import { useGlobalContext } from '@/context/GlobalContext'
-import Button from '@/components/Button'
-import Slider from '@/components/Slider/Index'
-import ArrowCircleIcon from '@/images/ArrowCricleIcon'
+import { goToAzchainPage } from '@/helpers/common'
 
 const DarkHome = () => {
     const { t, isMobile, language } = useGlobalContext()
@@ -52,7 +53,9 @@ const DarkHome = () => {
                             {t('Secure DeFi Infrastructure')}
                         </Banner.Description>
                         <Banner.ButtonList>
-                            <Button size='lg'>{t('JOIN NOW')}</Button>
+                            <Button size='lg' onClick={goToAzchainPage}>
+                                {t('JOIN NOW')}
+                            </Button>
                             <Button size='lg' outline='gradient'>
                                 {t('WHITE PAGE')}
                             </Button>
@@ -538,7 +541,9 @@ const DarkHome = () => {
                             <img src='/images/dark_home/contract-1.png' />
                         </Contract.Theme>
                         <img src='/images/dark_home/contract-2.png' />
-                        <Button size='lg'>{t('JOIN NOW')}</Button>
+                        <Button size='lg' onClick={goToAzchainPage}>
+                            {t('JOIN NOW')}
+                        </Button>
                     </Contract.Banner>
                 </Contract.Container>
             </Container>

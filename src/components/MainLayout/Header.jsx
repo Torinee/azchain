@@ -4,6 +4,7 @@ import Container from '../Container'
 import { useGlobalContext } from '@/context/GlobalContext'
 import Button from '../Button'
 import LanguageIcon from '@/images/LanguageIcon'
+import { goToAzchainPage } from '@/helpers/common'
 
 const HeaderContainer = () => {
     const { t, isMobile, language } = useGlobalContext()
@@ -56,7 +57,7 @@ const HeaderContainer = () => {
                 </Header.Center>
 
                 <Header.Right>
-                    <Button>{t('JOIN NOW')}</Button>
+                    <Button onClick={goToAzchainPage}>{t('JOIN NOW')}</Button>
                     <Header.Language href={language === 'en' ? '/' : '/home'}>
                         <LanguageIcon />
                         {language}
